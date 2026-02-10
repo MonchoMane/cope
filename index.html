@@ -32,16 +32,28 @@
       text-align:center;
       padding:24px;
     }
+      
     #word{
+      /* keep the same sizing behavior as before */
       font-size: clamp(64px, 12vw, 140px);
-      letter-spacing: 0.02em;
-      text-transform: lowercase;
-      opacity:0.95;
 
-      /* intentionally a little “bad” */
-      filter: contrast(1.1) brightness(0.95);
-      transform: translateZ(0);
-    }
+     /* make the image match the text height */
+     line-height: 1;
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+}
+#word img{
+  /* match the current word height (≈ 1em of #word) */
+  height: 1em;
+  width: auto;
+  display: block;
+
+  /* keep the same “bad” look the text had */
+  opacity: 0.95;
+  filter: contrast(1.1) brightness(0.95);
+  transform: translateZ(0);
+}
     #hint{
       margin-top:12px;
       font-size:14px;
@@ -182,9 +194,9 @@
   </svg>
 
   <div id="wrap">
-    <div id="word">cope</div>
-    <div id="hint">ca: ???</div>
-  </div>
+  <div id="word"><img src="web.png" alt="cope" /></div>
+  <div id="hint">ca: not live yet..</div>
+</div>
 
   <div id="toast" role="status" aria-live="polite">
     <div id="toastText"></div>
